@@ -11,7 +11,7 @@ const tokenCache = {
     },
 };
 
-const CLERKPUBLIC_KEY = 'pk_test_xxxxxxxx';
+const CLERKPUBLIC_KEY = 'pk_test_c3VwcmVtZS1uYXJ3aGFsLTM0LmNsZXJrLmFjY291bnRzLmRldiQ'; //add a chave do clerk
 
 export default function App() {
     return (

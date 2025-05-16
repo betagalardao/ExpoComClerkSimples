@@ -4,7 +4,7 @@ import { useOAuth, useUser, useClerk } from '@clerk/clerk-expo';
 import * as WebBrowser from 'expo-web-browser';
 import { SignedIn, SignedOut } from '@clerk/clerk-expo';
 import { useSignIn } from '@clerk/clerk-expo';
-import { ActivityIndicator } from 'react-native-web';
+import { ActivityIndicator } from 'react-native';
 
 WebBrowser.maybeCompleteAuthSession();
 
