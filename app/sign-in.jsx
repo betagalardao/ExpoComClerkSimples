@@ -28,7 +28,6 @@ export default function LoginScreen() {
 
             if (createdSessionId && setActive) {
                 await setActive({ session: createdSessionId });
-                // Redirecionar após login bem-sucedido
                 onSuccessfulLogin();
             }
         } catch (err) {
