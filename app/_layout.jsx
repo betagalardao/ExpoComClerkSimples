@@ -10,9 +10,7 @@ const tokenCache = {
         return SecureStore.setItemAsync(key, value);
     },
 };
-
-const CLERKPUBLIC_KEY = 'pk_test_c3VwcmVtZS1uYXJ3aGFsLTM0LmNsZXJrLmFjY291bnRzLmRldiQ'; //add a chave do clerk
-
+const CLERKPUBLIC_KEY = 'pk_test_c3VwcmVtZS1uYXJ3aGFsLTM0LmNsZXJrLmFjY291bnRzLmRldiQ';
 export default function App() {
     return (
         <ClerkProvider
