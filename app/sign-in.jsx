@@ -5,6 +5,7 @@ import * as WebBrowser from 'expo-web-browser';
 import { SignedIn, SignedOut } from '@clerk/clerk-expo';
 import { useSignIn } from '@clerk/clerk-expo';
 import { ActivityIndicator } from 'react-native';
+import { useRouter } from 'expo-router';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -15,11 +16,13 @@ export default function LoginScreen() {
 
     const { startOAuthFlow } = useOAuth({ strategy: 'oauth_google' });
 
+    const router = useRouter(); 
+
     const onSuccessfulLogin = useCallback(() => {
         // Redirecionar para a tela inicial ou qualquer outra ação após o login
         console.log('Login bem-sucedido!');
         // Aqui você pode navegar para outra tela ou realizar qualquer ação necessária
-
+        router.push('/home');
     }, []);
 
     const signInWithGoogle = async () => {

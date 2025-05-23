@@ -90,4 +90,12 @@ Muito comum em apps com backend próprio:
 Consegui finalmente configurar para entrar com o email 
 
 (lembrar: npm install
-npm install @clerk/clerk-expo)
+npm install @clerk/clerk-expo
+npx expo install @react-navigation/drawer react-native-gesture-handler react-native-reanimated)
+
+* Adicionado o drawer e telas
+
+git(
+  git config user.name "beta"
+  git config user.email "robertagalardao@gmail.com"
+)
