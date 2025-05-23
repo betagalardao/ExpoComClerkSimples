@@ -85,3 +85,9 @@ Muito comum em apps com backend próprio:
 
 * Útil para apps que precisam funcionar offline com sincronização posterior.
 * Pode combinar com login local e sincronizar dados ao reconectar.
+
+--Atualizações 23/05
+Consegui finalmente configurar para entrar com o email 
+
+(lembrar: npm install
+npm install @clerk/clerk-expo)

@@ -10,7 +10,7 @@ const tokenCache = {
         return SecureStore.setItemAsync(key, value);
     },
 };
-const CLERKPUBLIC_KEY = 'pk_test_c3VwcmVtZS1uYXJ3aGFsLTM0LmNsZXJrLmFjY291bnRzLmRldiQ';
+const CLERKPUBLIC_KEY = 'pk_test_cmVmaW5lZC1jb3lvdGUtNjAuY2xlcmsuYWNjb3VudHMuZGV2JA';
 export default function App() {
     return (
         <ClerkProvider
