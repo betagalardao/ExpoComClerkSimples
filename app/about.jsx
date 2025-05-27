@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Linking, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Linking, TouchableOpacity, Share } from 'react-native';
 
 export default function About() {
   const sendEmail = () => {
@@ -8,6 +8,20 @@ export default function About() {
   const openGitHub = () => {
     Linking.openURL('https://github.com/betagalardao/ExpoComClerkSimples');
   };
+
+  const onShare = async () => {
+      try {
+        await Share.share(
+          {
+            message: "Baixe agora em: https://videira.ifc.edu.br",
+            url: "https://videira.ifc.edu.br",
+          },
+          { dialogTitle: "Compartilhar" }
+        );
+      } catch (error) {
+        console.error("Erro ao compartilhar:", error.message);
+      }
+    };
 
   return (
     <View style={styles.container}>
@@ -37,7 +51,7 @@ export default function About() {
       </View>
 
       {/* botao de compartilhar */}
-      <TouchableOpacity style={styles.shareButton} onPress={() => {}}>
+      <TouchableOpacity style={styles.shareButton} onPress={onShare}>
         <Text style={styles.shareButtonText}>Compartilhar</Text>
       </TouchableOpacity>
 
@@ -91,12 +105,14 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 15,
     alignSelf: 'center',
-    marginTop: 'auto',  
+    marginTop: 'auto',
+    marginBottom: 3,  
   },
   shareButtonText: {
-    color: '#fff',
     fontSize: 17,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: '#FFFAF0',
   },
+  
 });

@@ -86,12 +86,11 @@ Muito comum em apps com backend próprio:
 * Útil para apps que precisam funcionar offline com sincronização posterior.
 * Pode combinar com login local e sincronizar dados ao reconectar.
 
---Atualizações 23/05
-Consegui finalmente configurar para entrar com o email 
+---
 
 (lembrar: npm install
 npm install @clerk/clerk-expo
-npx expo install @react-navigation/drawer react-native-gesture-handler react-native-reanimated)
+npx expo install @react-navigation/drawer react-native-gesture-handler react-native-reanimated )
 
 * Adicionado o drawer e telas
 
@@ -99,3 +98,5 @@ git(
   git config user.name "beta"
   git config user.email "robertagalardao@gmail.com"
 )
+
+//tela about pronta
