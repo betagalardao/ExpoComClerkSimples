@@ -25,8 +25,6 @@ export default function About() {
 
   return (
     <View style={styles.container}>
-
-      {/* Grupo dos cards */}
       <View style={styles.cardsContainer}>
         <View style={[styles.card, { marginBottom: 15 }]}>
           <Text style={styles.sectionTitle}>Sobre o App:</Text>
@@ -54,7 +52,6 @@ export default function About() {
       <TouchableOpacity style={styles.shareButton} onPress={onShare}>
         <Text style={styles.shareButtonText}>Compartilhar</Text>
       </TouchableOpacity>
-
     </View>
   );
 }
