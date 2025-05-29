@@ -100,3 +100,4 @@ git(
 )
 
 //tela about pronta
+//exemplo de API que busca receitas

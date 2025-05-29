@@ -1,77 +1,41 @@
-import { useState } from 'react';
-import { View, TextInput, Button, FlatList, Text, Image, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, Button, FlatList, Image, Text } from 'react-native';
 
-export default function Inicio() {
-  const [query, setQuery] = useState('');
+export default function Recipes() {
+  const [searchQuery, setSearchQuery] = useState('');
   const [recipes, setRecipes] = useState([]);
 
-  const searchRecipes = async () => {
-    const appId = '052adf08';
-    const appKey = '225843d7705b02b002860a4a24eb0440';
-    const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}`;
-
+  const handleSearch = async () => {
     try {
-      const response = await fetch(url);
+      const response = await fetch(
+        `https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&number=10&apiKey=c40f03a7c6e34b4580542402c0aeffd1`
+      );
       const data = await response.json();
-      setRecipes(data.hits);
+      setRecipes(data.results || []);
     } catch (error) {
       console.error('Erro ao buscar receitas:', error);
     }
   };
 
   return (
-    <View style={styles.container}>
+    <View style={{ padding: 20 }}>
       <TextInput
-        placeholder="Digite um ingrediente (ex: frango)"
-        value={query}
-        onChangeText={setQuery}
-        style={styles.input}
+        placeholder="Digite o nome da receita"
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+        style={{ borderWidth: 1, marginBottom: 10, padding: 8 }}
       />
-      <Button title="Buscar Receitas" onPress={searchRecipes} />
-
+      <Button title="Pesquisar" onPress={handleSearch} />
       <FlatList
         data={recipes}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Text style={styles.title}>{item.recipe.label}</Text>
-            <Image source={{ uri: item.recipe.image }} style={styles.image} />
-            <Text style={styles.link}>Fonte: {item.recipe.source}</Text>
+          <View style={{ marginVertical: 10 }}>
+            <Text>{item.title}</Text>
+            <Image source={{ uri: item.image }} style={{ width: 100, height: 100 }} />
           </View>
         )}
       />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { padding: 16, flex: 1, backgroundColor: '#fff' },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 12,
-  },
-  card: {
-    marginBottom: 24,
-    backgroundColor: '#f9f9f9',
-    padding: 12,
-    borderRadius: 8,
-    elevation: 2,
-  },
-  title: {
-    fontWeight: 'bold',
-    fontSize: 18,
-  },
-  image: {
-    height: 150,
-    borderRadius: 8,
-    marginTop: 8,
-  },
-  link: {
-    marginTop: 6,
-    fontSize: 12,
-    color: '#777',
-  },
-});
